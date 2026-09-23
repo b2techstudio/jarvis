@@ -6,3 +6,6 @@ __pycache__/
 .env
 data/*.db
 logs/*.log*
+build/
+dist/
+packaging/jarvis.ico

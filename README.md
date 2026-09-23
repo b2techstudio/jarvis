@@ -93,6 +93,16 @@ Les applications Windows courantes (Bloc-notes, Calculatrice, Explorateur, Edge,
 python -m app.main
 ```
 
+### Construire l’exécutable Windows
+
+```powershell
+.venv\Scripts\Activate.ps1
+pip install -r build-requirements.txt
+.\scripts\build-release.ps1
+```
+
+Le résultat est créé dans `dist\JARVIS-Desktop\JARVIS-Desktop.exe`. Distribue le dossier `JARVIS-Desktop` complet : les bibliothèques placées dans son sous-dossier `_internal` sont nécessaires. Place un fichier `.env` à côté de l’exécutable pour activer OpenAI. Les dossiers `data` et `logs` sont créés automatiquement à côté de l’exécutable au premier lancement. La clé API et la base locale ne sont jamais incluses dans la distribution.
+
 Au premier démarrage, l’assistant propose trois vérifications. Une fois dans l’écran principal :
 
 1. clique sur le bouton rond du microphone ;

@@ -1,13 +1,18 @@
 from __future__ import annotations
 
 import os
+import sys
 from dataclasses import dataclass
 from pathlib import Path
 
 from dotenv import load_dotenv
 
 
-ROOT_DIR = Path(__file__).resolve().parents[2]
+ROOT_DIR = (
+    Path(sys.executable).resolve().parent
+    if getattr(sys, "frozen", False)
+    else Path(__file__).resolve().parents[2]
+)
 
 
 def _as_bool(value: str | None, default: bool = False) -> bool:
@@ -74,4 +79,3 @@ class Settings:
             global_hotkey=os.getenv("GLOBAL_HOTKEY", "<ctrl>+<alt>+<space>"),
             minimize_to_tray=_as_bool(os.getenv("MINIMIZE_TO_TRAY"), True),
         )
-

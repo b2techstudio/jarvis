@@ -1,0 +1,2 @@
+"""JARVIS Desktop application package."""
+
